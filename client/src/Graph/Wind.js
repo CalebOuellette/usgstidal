@@ -34,10 +34,14 @@ const COLOR_DIR_OBS = "";
 var scale = 2.237; // 1 m/s = 2.237 mph
 
 export default async function buildGraph(dataPred, dataObs) {
-  if (!dataPred || !dataPred.length) {
-    return null;
+  //console.log("dataPred: ", dataPred);
+  let data = dataPred;
+  let hasPOdata = false;
+
+  if (dataObs.length){
+      data.concat(dataObs);
+      hasPOdata = true;
   }
-  const hasPOdata = !!dataObs.length;
 
   const expectedarraytype = [];
   for (let i = 0; i < dataPred.length; i++) {

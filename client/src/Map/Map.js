@@ -82,7 +82,7 @@ class MapComponent extends Component {
 
   getLayers = (manifest, map) => {
     let layers = [];
-    
+    let icon = "";
     if (map.state.navMode) {
       layers = [
         //SwellLayer(map.state.time),
@@ -110,18 +110,19 @@ class MapComponent extends Component {
       ];
     }
     return layers;
-  };
+  }; 
 
   render() {
     return (
       <div>
         {this.state.displayGraph ? (
           <Graph
-            action={this.closeGraph}
-            x={this.state.x}
-            y={this.state.y}
-            site={this.state.hoveredObject}
-          />
+          action={this.closeGraph}
+          x={this.state.x}
+          y={this.state.y}
+          site={this.state.hoveredObject}
+          display={this.state.displayGraph}
+        />
         ) : null}
 
         <DeckGL

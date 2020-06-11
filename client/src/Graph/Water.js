@@ -27,7 +27,7 @@ const PARAM_NTR = "NTR";
 
 const COLOR_TWL_PRED = "#1f77b4";
 const COLOR_TIDE_PRED = "#ff7f0e";
-const COLOR_TWL_OBS = "#2ca02c";
+const COLOR_TWL_OBS = "#000000";
 const COLOR_NTR = "";
 
 export default async function buildGraph(dataPred, dataObs) {
@@ -92,7 +92,7 @@ function doCallback(data, hasPOdata) {
 
   var timeP = ["Time Predicted"];
   var tideP = ["Predicted Tide Level"];
-  var ntr = ["Non-Tidal Residual"];
+  var ntr = ["Storm Surge"];
   var twlP = ["Predicted Total Water Level"];
 
   var str, justdate, justtime, strT, strZ, datepart, timepart, fulldt, d;
@@ -260,7 +260,7 @@ function doPGraph(timeP, twlP, tideP) {
 
       y: {
         label: {
-          text: "Total Water Level [ft/MLLW]",
+          text: "Total Water Level [ft, MLLW]",
           position: "outer-middle"
         }
       }
@@ -277,7 +277,7 @@ function doPGraph(timeP, twlP, tideP) {
             id === "Predicted Total Water Level" ||
             id === "Predicted Tide Level"
           ) {
-            return value + " ft/MLLW";
+            return value + " ft, MLLW";
           }
         }
       }
@@ -337,7 +337,7 @@ function doPOGraph(timeP, twlP, tideP, timeO, twlO) {
 
       y: {
         label: {
-          text: "Total Water Level [ft/MLLW]",
+          text: "Total Water Level [ft, MLLW]",
           position: "outer-middle"
         }
       }
@@ -355,7 +355,7 @@ function doPOGraph(timeP, twlP, tideP, timeO, twlO) {
             id === "Predicted Tide Level" ||
             id === "Observed Total Water Level"
           ) {
-            return value + " ft/MLLW";
+            return value + " ft, MLLW";
           }
         }
       }
@@ -373,7 +373,7 @@ function doNTRGraph(timeP, ntr) {
 
     data: {
       xs: {
-        "Non-Tidal Residual": "Time Predicted"
+        "Storm Surge": "Time Predicted"
       },
 
       xFormat: "%Y-%m-%d %H:%M:%S",
@@ -381,7 +381,7 @@ function doNTRGraph(timeP, ntr) {
     },
 
     colors: {
-      "Non-Tidal Residual": COLOR_NTR
+      "Storm Surge": COLOR_NTR
     },
 
     point: {
@@ -412,7 +412,7 @@ function doNTRGraph(timeP, ntr) {
 
       y: {
         label: {
-          text: "Non-Tidal Residual [ft]",
+          text: "Storm Surge [ft]",
           position: "outer-middle"
         }
       }
@@ -429,7 +429,7 @@ function doNTRGraph(timeP, ntr) {
         },
 
         value: function(value, ratio, id) {
-          if (id === "Non-Tidal Residual") {
+          if (id === "Storm Surge") {
             return value + " ft";
           }
         }
