@@ -26,9 +26,9 @@ const PARAM_NTR = "NTR";
 */
 
 const COLOR_TWL_PRED = "#1f77b4";
-const COLOR_TIDE_PRED = "#ff7f0e";
+const COLOR_TIDE_PRED = "#000000";
 const COLOR_TWL_OBS = "#000000";
-const COLOR_NTR = "";
+const COLOR_NTR = "#000000";
 
 export default async function buildGraph(dataPred, dataObs) {
   if (!dataPred || !dataPred.length) {
@@ -223,13 +223,12 @@ function doPGraph(timeP, twlP, tideP) {
         "Predicted Total Water Level": "Time Predicted",
         "Predicted Tide Level": "Time Predicted"
       },
+      colors: {
+        "Predicted Total Water Level": COLOR_TWL_PRED,
+        "Predicted Tide Level": COLOR_TIDE_PRED
+      },
       xFormat: "%Y-%m-%d %H:%M:%S",
       columns: [timeP, twlP, tideP]
-    },
-
-    colors: {
-      "Predicted Total Water Level": COLOR_TWL_PRED,
-      "Predicted Tide Level": COLOR_TIDE_PRED
     },
 
     point: {
@@ -299,14 +298,13 @@ function doPOGraph(timeP, twlP, tideP, timeO, twlO) {
         "Predicted Tide Level": "Time Predicted",
         "Observed Total Water Level": "Time Observed"
       },
+      colors: {
+        "Predicted Total Water Level": COLOR_TWL_PRED,
+        "Predicted Tide Level": COLOR_TIDE_PRED,
+        "Observed Total Water Level": COLOR_TWL_OBS
+      },
       xFormat: "%Y-%m-%d %H:%M:%S",
       columns: [timeP, twlP, tideP, timeO, twlO]
-    },
-
-    colors: {
-      "Predicted Total Water Level": COLOR_TWL_PRED,
-      "Predicted Tide Level": COLOR_TIDE_PRED,
-      "Observed Total Water Level": COLOR_TWL_OBS
     },
 
     point: {
@@ -375,13 +373,11 @@ function doNTRGraph(timeP, ntr) {
       xs: {
         "Storm Surge": "Time Predicted"
       },
-
+      colors: {
+        "Storm Surge": COLOR_NTR
+      },
       xFormat: "%Y-%m-%d %H:%M:%S",
       columns: [timeP, ntr]
-    },
-
-    colors: {
-      "Storm Surge": COLOR_NTR
     },
 
     point: {

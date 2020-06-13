@@ -26,10 +26,10 @@ const PARAM_DIR   = "DIR";
 */
 
 const COLOR_SPEED_PRED = "#1f77b4";
-const COLOR_GUSTS_PRED = "#2ca02c";
-const COLOR_SPEED_OBS = "#ff7f0e";
-const COLOR_DIR_PRED = "";
-const COLOR_DIR_OBS = "";
+const COLOR_GUSTS_PRED = "#000000";
+const COLOR_SPEED_OBS = "#000000";
+const COLOR_DIR_PRED = "#1f77b4";
+const COLOR_DIR_OBS = "#000000";
 
 var scale = 2.237; // 1 m/s = 2.237 mph
 
@@ -244,12 +244,11 @@ function doPGraph(timeP, dirP, speedP) {
       xs: {
         "Predicted Speed": "Predicted Time"
       },
+      colors: {
+        "Predicted Speed": COLOR_SPEED_PRED
+      },
       xFormat: "%Y-%m-%d %H:%M:%S",
       columns: [timeP, speedP]
-    },
-
-    colors: {
-      "Predicted Speed": COLOR_SPEED_PRED
     },
 
     point: {
@@ -316,14 +315,16 @@ function doPOGraph(timeP, speedP, timeO, gusts, speedO) {
         "Observed Speed": "Observed Time",
         Gusts: "Observed Time"
       },
+      regions: {
+        Gusts: [{'style':'dashed'}]
+      },
+      colors: {
+        "Predicted Speed": COLOR_SPEED_PRED,
+        "Observed Speed": COLOR_SPEED_OBS,
+        Gusts: COLOR_GUSTS_PRED
+      },
       xFormat: "%Y-%m-%d %H:%M:%S",
       columns: [timeP, speedP, timeO, gusts, speedO]
-    },
-
-    colors: {
-      "Predicted Speed": COLOR_SPEED_PRED,
-      "Observed Speed": COLOR_SPEED_OBS,
-      Gusts: COLOR_GUSTS_PRED
     },
 
     point: {
@@ -393,14 +394,13 @@ function doDirectionGraph(timeP, dirP, timeO, dirO) {
         "Predicted Direction": "Predicted Time",
         "Observed Direction": "Observed Time"
       },
+      colors: {
+        "Predicted Direction": COLOR_DIR_PRED,
+        "Observed Direction": COLOR_DIR_OBS
+      },
 
       xFormat: "%Y-%m-%d %H:%M:%S",
       columns: [timeP, dirP, timeO, dirO]
-    },
-
-    colors: {
-      "Predicted Direction": COLOR_DIR_PRED,
-      "Observed Direction": COLOR_DIR_OBS
     },
 
     point: {
