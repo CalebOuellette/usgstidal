@@ -15,3 +15,9 @@ package-lock.json
 package-lock.json
 client/package-lock.json
 client/package-lock.json
+/data-packager/__pycache__
+/data-packager/adapters/__pycache__
+/.vscode/launch.json
+/.vs/usgstidal/v16/.suo
+/.vs/ProjectSettings.json
+/.vs/usgstidal/config/applicationhost.config
