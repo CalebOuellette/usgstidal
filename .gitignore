@@ -21,3 +21,4 @@ client/package-lock.json
 /.vs/usgstidal/v16/.suo
 /.vs/ProjectSettings.json
 /.vs/usgstidal/config/applicationhost.config
+/server/node_modules

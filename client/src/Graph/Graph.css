@@ -1,5 +1,5 @@
 .popup-overlay {
-    overflow: auto;
+    overflow: hidden;
 }
 
 .popup-content {

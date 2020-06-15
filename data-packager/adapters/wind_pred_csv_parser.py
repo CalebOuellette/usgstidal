@@ -20,5 +20,4 @@ def parse_wind_pred_csv(filePath) :
 
     next(reader)
 
-    return data      
-       
+    return [row for row in reader]

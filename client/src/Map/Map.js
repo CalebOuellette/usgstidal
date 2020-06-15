@@ -52,7 +52,7 @@ class MapComponent extends Component {
   };
 
   // displaying a graph in the popup
-  toggleDisplayGraph = (site) => {
+  toggleDisplayGraph = () => {
     this.setState({ displayGraph: !this.state.displayGraph });
   };
 
@@ -82,7 +82,6 @@ class MapComponent extends Component {
 
   getLayers = (manifest, map) => {
     let layers = [];
-    let icon = "";
     if (map.state.navMode) {
       layers = [
         //SwellLayer(map.state.time),
