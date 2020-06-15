@@ -27,7 +27,7 @@ const PARAM_DIR   = "DIR";
 
 const COLOR_SPEED_PRED = "#1f77b4";
 const COLOR_SPEED_OBS = "#000000";
-const COLOR_GUSTS_OBS = "#ff7f0e";
+const COLOR_GUSTS_OBS = "#000000";
 const COLOR_DIR_PRED = "#1f77b4";
 const COLOR_DIR_OBS = "#000000";
 const GRAPH_SIZE = 300;
@@ -174,7 +174,7 @@ function doCallback(data, hasPOdata)
     {
         var timeO = ["Observed Time"];
         var dirO = ["Observed Direction"];
-        var gusts = ["Observed Gusts"];
+        var gusts = ["Gusts"];
         var speedO = ["Observed Speed"];
 
         // 2. PARSE OBS DATA
@@ -402,7 +402,7 @@ function doPOGraph(timeP, speedP, timeO, gusts, speedO)
                     if (
                         id === "Predicted Speed" ||
                         id === "Observed Speed" ||
-                        id === "Observed Gusts"
+                        id === "Gusts"
                     )
                     {
                         return value + " mph";
