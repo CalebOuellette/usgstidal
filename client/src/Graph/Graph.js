@@ -47,7 +47,7 @@ export const Graph = ({ x, y, action, site, display }) =>
                                 <span className="close" onClick={close}>
                                     &times;
                                 </span>
-                                <div className="header">{site.siteDisplayName}: Total Water Level & NTR</div>
+                                <div className="header">{site.siteDisplayName}: Total Water Level & Storm Surge</div>
                                 <div className="content">
                                     <div className="graph_container">
                                         <WaterGraph site={site}></WaterGraph>
@@ -82,7 +82,7 @@ export const Graph = ({ x, y, action, site, display }) =>
                             </div>
                         )}
                     </Popup>
-                    <button className="graphbtn" onClick={action}>
+                    <button className="graphbtn" onClick={action}> {" "}
                         close
                     </button>
                 </div>
@@ -97,7 +97,7 @@ export const Graph = ({ x, y, action, site, display }) =>
                         <span className="close" onClick={close, action}>
                             &times;
                         </span>
-                        <div className="header">{site.siteDisplayName}: Total Water Level & NTR</div>
+                        <div className="header">{site.siteDisplayName}: Total Water Level & Storm Surge</div>
                         <div className="content">
                             <div className="graph_container">
                                 <WaterGraph site={site}></WaterGraph>
@@ -140,4 +140,5 @@ export const Graph = ({ x, y, action, site, display }) =>
     {
         return null;
     }
+    
 };
